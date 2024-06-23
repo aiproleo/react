@@ -1,4 +1,24 @@
+// root.tsx
 import { Link, Outlet, } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom'
+
+import ErrorPage from './error404.tsx'
+import Home from '../components/Home';
+import StateHooks from '../components/StateHooks/index.tsx';
+import UseState   from '../components/StateHooks/useState.tsx'
+import UseReducer from '../components/StateHooks/useReducer.tsx'
+
+export const router = createBrowserRouter([
+    {
+        path: "/",        element: <Root />,        errorElement: <ErrorPage />,
+        children: [
+            {path: "/",         element: <Home />,},
+            {path: "/statehooks",          element: <StateHooks />,},
+            {path: "/statehooks/useState", element: <UseState />,},
+            {path: "/statehooks/useReducer", element: <UseReducer />,},
+        ],
+    },
+]);
 
 export default function Root() {
     return (
@@ -18,14 +38,13 @@ export default function Root() {
                 <nav>
                     <ul>
                         <li><Link to={`/`}>Home</Link></li>
-                        <li><Link to={"/About"}>About</Link></li>
+                        <li><Link to={"/statehooks"}>State Hooks</Link></li>
                         <li><Link to={`/contacts`}>Your Friend</Link></li>
                     </ul>
                 </nav>
             </div>
             <div id="detail">
                 <Outlet />
-                <h3>Welcome</h3>
             </div>
         </div>
     );
