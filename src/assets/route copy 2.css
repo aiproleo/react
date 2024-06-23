@@ -1,0 +1,29 @@
+#root {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Ensure it uses full viewport height */
+  width: 100%;
+}
+
+#sidebar {
+  width: 22rem;
+  height: 100%;
+  background-color: #f7f7f7;
+  border-right: solid 1px #e3e3e3;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem; /* Optional: add some padding */
+}
+
+#detail {
+  flex-grow: 1;
+  padding: 2rem 4rem;
+  width: auto; /* Ensure width is not fixed */
+  min-width: 0; /* Prevent overflow issues */
+}
+
+#detail.loading {
+  opacity: 0.25;
+  transition: opacity 200ms;
+  transition-delay: 200ms;
+}
