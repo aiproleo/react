@@ -17,13 +17,15 @@ export default function Root() {
                 </div>
                 <nav>
                     <ul>
-                        <li><Link to={`/contacts/1`}>Your Name</Link></li>
-                        <li><Link to={`/contacts/2`}>Your Friend</Link></li>
+                        <li><Link to={`/`}>Home</Link></li>
+                        <li><Link to={"/About"}>About</Link></li>
+                        <li><Link to={`/contacts`}>Your Friend</Link></li>
                     </ul>
                 </nav>
             </div>
             <div id="detail">
                 <Outlet />
+                <h3>Welcome</h3>
             </div>
         </div>
     );
